@@ -4,16 +4,19 @@ const fs = require("fs");
 //asynchronous --> non-blocking
 
 //read file asynchronously
+/* if you don't mention the encoding, then the output will be in Buffer format
+instead of giving the encoding utf-8, you can also modify the output as data.toString()
+*/
 fs.readFile("message.txt", "utf-8", (err, data) => {
   if (err) {
     throw err;
   }
-  console.log("async " + data);
+  console.log(data);
 });
 
 //read file synchronously
 const data1 = fs.readFileSync("message.txt", "utf-8");
-console.log("sync " + data1);
+console.log(data1);
 
 // --------------------------------------- //
 
